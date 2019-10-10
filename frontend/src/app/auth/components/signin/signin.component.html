@@ -1,0 +1,16 @@
+
+<form (ngSubmit)='submitForm(form)' #form="ngForm" class="example-container">
+
+  <div class="logo">SignIn</div>
+
+  <mat-form-field>
+    <input matInput type='name' placeholder="name" ngModel name="name" #name="ngModel">
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput type='password' placeholder="Password" ngModel name="password" #password="ngModel">
+  </mat-form-field> 
+
+  <input class='btn' type='submit'  placeholder="next">
+  
+</form>

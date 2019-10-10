@@ -1,0 +1,33 @@
+<form (ngSubmit)='submitForm(form)' #form="ngForm" class="example-container">
+    <div class="logo">SignUp</div>
+    
+    <mat-form-field>
+        <input matInput type='email' placeholder="Email" ngModel name="email" #email="ngModel" required email>
+    </mat-form-field>
+        <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+             Укажите email
+        </div>
+    <mat-form-field>
+        <input matInput type='name' placeholder="Name" ngModel name="name" #name="ngModel" required >
+        
+    </mat-form-field>
+    <div [hidden]="name.valid || name.untouched" class="alert alert-danger">
+         Не указано имя
+    </div>
+
+    <mat-form-field>
+        <input  matInput type='password' placeholder="Password" ngModel name="password" #password="ngModel" required>
+    </mat-form-field>
+        
+    <mat-form-field>
+        <input matInput type='password' min ="5" placeholder="Password" ngModel name="renamepassword" #renamepassword="ngModel" required>
+    </mat-form-field> 
+    
+        <div *ngIf="renamepassword.invalid && (renamepassword.touched || renamepassword.dirty)">
+            <span *ngIf="renamepassword.errors.required">Обязательное поле</span>
+            <!-- <span *ngIf="renamepassword.errors.min.min">Значение должно быть больше или равно {{_clientAge.errors?.min.min}}</span> -->
+            <!-- <span *ngIf="_clientAge.errors?.pattern?['/^[0-9]+(?!.)/']">Разрешаются только цифры</span> -->
+        </div>
+    <input class='btn'  type='submit'  placeholder="next" [disabled]="!name.valid"> 
+
+</form>
